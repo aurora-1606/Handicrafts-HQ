@@ -1,0 +1,9 @@
+{% extends 'core/base.html' %} 
+{%block title%}My account{%endblock%}
+
+{% block content %}
+<h1 class="text-centre">My account</h1>
+<br></br>
+<a class="btn btn-primary inline-block" href="{% url 'logout' %}" role="button">Logout</a>
+
+{%endblock%}

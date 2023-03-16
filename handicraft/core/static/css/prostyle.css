@@ -1,0 +1,69 @@
+.pd{
+    background-color: rgb(17, 17, 17);
+    opacity: 0.99;
+}
+
+.text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image{
+    max-height: 50%;
+    max-width: 50%;
+    border-radius: 5%;
+}
+
+.size{ 
+    font-family:serif;  
+    padding: 10px;
+    border-radius: 0px;
+    border-width: 0ch;
+}
+
+.format{
+  background-color:rgb(17, 17, 17) ;
+}
+
+
+
+/* Setting container to flex and 
+         width to 80% of view port */
+         .container {
+            display: flex;
+            width: 80%;
+          }
+          /*Adding background image to each section*/
+          .one {
+            background-image:url("../img/img2.jpg");
+          }
+          .two {
+            background-image: url("../img/img3.jpg");
+          }
+          .three {
+            background-image: url("../img/img1.jpg");
+          }
+          .four {
+            background-image: url("../img/img4.jpg");
+          }
+            
+          /* Background properties and 
+             transition effect to section */
+          .section {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 80vh;
+            cursor: pointer;
+            flex: 0.2;
+            margin: 8px;
+            position: relative;
+            transition: all 0.7s ease-out;
+          }
+      
+          /* section with active class will
+             grow flex to 3 times */
+          .section.active {
+            flex: 3;
+          }
