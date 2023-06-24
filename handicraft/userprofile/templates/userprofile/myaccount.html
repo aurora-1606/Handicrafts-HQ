@@ -2,8 +2,15 @@
 {%block title%}My account{%endblock%}
 
 {% block content %}
-<h1 class="text-centre">My account</h1>
-<br></br>
-<a class="btn btn-primary inline-block" href="{% url 'logout' %}" role="button">Logout</a>
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <h1>My Account</h1>
+      </div>
+      <div class="col-12 text-center">
+        <a class="btn btn-primary btn-sm" href="{% url 'logout' %}" role="button">Logout</a>
+      </div>
+    </div>
+  </div>
 
 {%endblock%}

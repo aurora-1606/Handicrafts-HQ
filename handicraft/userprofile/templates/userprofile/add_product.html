@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %} 
+{%block title%}Add Product{%endblock%}
+
+{% block content %}
+<h1>Add Product</h1>
+
+<form method="post" action="." enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <button style="height: 30px; width: 250px; background-color: orangered; color: white;">Submit</button>
+
+</form>
+{%endblock%}
