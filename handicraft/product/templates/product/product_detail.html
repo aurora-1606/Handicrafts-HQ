@@ -13,6 +13,6 @@
 <p>Rs {{product.price}}</p>
     <p>{{product.description}}</p>
     <button class="py-4 py-8 bg-orange">Buy Now</button>
-    <button class="py-4 py-8 bg-orange">Add to cart</button>
+   <a href="{% url 'add_to_cart' product.id %}"> <button class="py-4 py-8 bg-orange">Add to cart</button></a>
 </div>
 {%endblock%}

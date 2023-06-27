@@ -27,6 +27,10 @@ SECRET_KEY = 'django-insecure-=%z(z6c139x&08wytsyrzwxneb)!i_xqve9dp_q*@ypua(%vql
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+CART_SESSION_ID= 'cart'
+SESSION_COOKIE_AGE = 86400
+
 LOGIN_REDIRECT_URL='frontpage'
 LOGOUT_REDIRECT_URL='frontpage'
 

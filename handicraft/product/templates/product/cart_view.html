@@ -1,0 +1,20 @@
+{% extends 'core/base.html' %} 
+{% block title %}Cart{% endblock %}
+
+{% block content %}
+<h1>My Cart</h1>
+
+{% for item in cart %}
+<p>
+    <b>Title:</b>{{  item.product.title}}<br>
+    <b>Cost:</b>{{  item.product.price}}<br>
+    <b>Quantity:</b>{{ item.quantity }}<br>
+    <a href="{% url 'change_quantity' item.product.id %}?action=increase"><button style="background-color: rgb(255, 249, 227);border: 2px solid orangered;">Increase +</button></a>
+    <a href="{% url 'change_quantity' item.product.id %}?action=decrease"><button style="background-color: rgb(255, 249, 227);border: 2px solid orangered;">Decrease -</button></a>
+    <a href="{% url 'remove_from_cart' item.product.id %}"><button style="background-color: rgb(255, 249, 227);border: 2px solid orangered;">Remove from Cart</button></a>
+</p>
+{% endfor %}
+<strong>Total cost:</strong>{{ cart.get_total_cost }}<br>
+<br>
+<button style="height: 40px; width: 200px; background-color: rgb(255, 159, 15); color: black;">Checkout</button>
+{% endblock %}
