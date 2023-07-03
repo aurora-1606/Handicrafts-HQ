@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %} 
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+<h1>Checkout</h1>
+<br>
+<h2>Total Cost: {{cart.get_total_cost }}</h2>
+<form method="post" action=".">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+<button style="height: 40px; width: 200px; background-color: rgb(255, 159, 15); color: black;">Checkout</button>
+</form>
+{% endblock %}

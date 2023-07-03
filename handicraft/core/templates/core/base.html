@@ -83,6 +83,7 @@
           {%if request.user.is_authenticated %}
             <li><a href="{% url 'myaccount' %}">My account</a></li>
             <li><a href="{%url 'my_store' %}">My Shop</a></li>
+            <li><a href="{%url 'cart_view' %}">Cart</a></li>
           {%else%}
           <li><a href="{% url 'signup' %}">Sign Up/Login</a></li>
           {%endif%}

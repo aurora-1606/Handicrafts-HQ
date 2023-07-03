@@ -26,25 +26,37 @@
 </section><!-- End Hero -->
 
 <div class="product-container">
+  <br>
+  <br>
+  <br>
   <h1 class="text-center">
     Our Newest Products!
   </h1>
-  <ul class="product-list flex">
+  <br>
+  <br>
+  <ul class="product-list" style="list-style: none; padding: 0; display: flex; flex-wrap: wrap;">
     {% for product in products %}
-    <li class="product-item w-1/3">
-      {% if product.image %}
-      <div class="image">
-        <img src="{{ product.image.url }}" alt="">
-      </div>
-      {% endif %}
-      <div class="product-info">
-        <h2>{{ product.title }}</h2>
-        <a href ="{% url 'vendor_detail' product.user.id %}" >{% firstof product.user.get_full_name product.user.username %}</a>
-        <p style="color:black">Rs {{ product.price }}</p>
-        <a class="btn btn-primary" href="{% url 'product_detail' product.slug %}" role="button">View Details</a>
+    <li class="product-item" style="width: 20%; padding: 10px; box-sizing: border-box;">
+      <div class="product-box" style="background-color: #f2f2f2; text-align: center; padding: 10px;">
+        {% if product.image %}
+        <div class="image" style="width: 100%; height: 200px; overflow: hidden;">
+          <img src="{{ product.image.url }}" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+        {% endif %}
+        <div class="product-info" style="text-align: center;">
+          <h2 style="margin-bottom: 5px;">{{ product.title }}</h2>
+          <a href="{% url 'vendor_detail' product.user.id %}">{% firstof product.user.get_full_name product.user.username %}</a>
+          <p style="color: black; margin-bottom: 5px;">Rs {{ product.price }}</p>
+          <a class="btn btn-primary" href="{% url 'product_detail' product.slug %}" role="button">View Details</a>
+        </div>
       </div>
     </li>
     {% endfor %}
   </ul>
 </div>
+
+
+
+
+
 {% endblock %}
