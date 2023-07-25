@@ -35,8 +35,8 @@ LOGIN_URL='login'
 LOGIN_REDIRECT_URL='frontpage'
 LOGOUT_REDIRECT_URL='frontpage'
 
-
-# Application definition
+STRIPE_PUB_KEY = 'pk_test_51NUGmBSB33kye8MdMnGjmFLyuADhGiVdG1XxYJ3Fb73xXEf18cs5Vk1wyJdXuworEj0XFyv9zBJnXb2xsu24WhRf00GNiBBW67'
+STRIPE_SECRET_KEY ='sk_test_51NUGmBSB33kye8MdrmdjS4djOzEyEqoZ2PUd2Dllu6LFFeafH3w2j57tWnImQIfDPJdUf2N1zy0g0uYC2TJXP4aA00Za5j1MI3'
 
 INSTALLED_APPS = [
     'django.contrib.admin',

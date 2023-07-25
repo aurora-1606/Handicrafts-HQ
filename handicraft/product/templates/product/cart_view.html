@@ -2,6 +2,7 @@
 {% block title %}Cart{% endblock %}
 
 {% block content %}
+<div style="margin: 0 auto; width: fit-content; text-align:centre">
 <h1>My Cart</h1>
 
 {% for item in cart %}
@@ -17,4 +18,5 @@
 <strong>Total cost:</strong>{{ cart.get_total_cost }}<br>
 <br>
 <a href="{% url 'checkout' %}"><button style="height: 40px; width: 200px; background-color: rgb(255, 159, 15); color: black;">Checkout</button></a>
+</div>
 {% endblock %}

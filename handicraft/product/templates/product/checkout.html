@@ -2,13 +2,57 @@
 {% block title %}Checkout{% endblock %}
 
 {% block content %}
+<div style="margin: 0 auto; width: fit-content; text-align:centre;background-color: rgba(56, 53, 53, 0.971); border: 2px solid orange; padding: 10px;">
 <h1>Checkout</h1>
 <br>
 <h2>Total Cost: {{cart.get_total_cost }}</h2>
-<form method="post" action=".">
-    {% csrf_token %}
 
     {{ form.as_p }}
-<button style="height: 40px; width: 200px; background-color: rgb(255, 159, 15); color: black;">Checkout</button>
-</form>
+<button style="height: 40px; width: 200px; background-color: rgb(255, 159, 15); color: black;" onclick="buy(event)">Checkout</button>
+
+</div>
 {% endblock %}
+{% block scripts %}
+  <script type="application/javascript" src="https://js.stripe.com/v3/"></script>
+  <script>
+    function buy(event) {
+        event.preventDefault();
+
+        let data = {
+            'first_name': document.getElementById('id_first_name').value,
+            'last_name': document.getElementById('id_last_name').value,
+            'address': document.getElementById('id_address').value,
+            'zipcode': document.getElementById('id_zipcode').value,
+            'city': document.getElementById('id_city').value,
+        }
+
+        let stripe = Stripe('{{ pub_key }}');
+
+        fetch('/cart/checkout/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            credentials: 'same-origin',
+            body: JSON.stringify(data)
+        })
+        .then(function(response) {
+            return response.json()
+        })
+        .then(function(session) {
+            return stripe.redirectToCheckout({ sessionId: session.session.id })
+        })
+        .then(function(result) {
+            if (result.error) {
+                alert(result.error.message)
+            }
+        })
+        .catch(function(error) {
+            alert(error)
+        });
+
+        return false;
+    }
+</script>
+  {%endblock%}

@@ -1,15 +1,8 @@
 {% extends 'core/base.html' %} 
-{%block title%}Login{%endblock%}
+{%block title%}Success{%endblock%}
 
 {% block content %}
 <div style="margin: 0 auto; width: fit-content; text-align:centre; background-color: rgba(56, 53, 53, 0.971); border: 2px solid orange; padding: 10px;">
-<h2 class="text-2xl">Welcome back!</h2>
-
-<form method="post" action=".">
-    {% csrf_token %}
-
-    {{form.as_p }}
-    <button class="py-2 py-12 bg-orange">Login</button>
-</form>
+    <h1>Your payment was successful!</h1>
 </div>
 {%endblock%}
